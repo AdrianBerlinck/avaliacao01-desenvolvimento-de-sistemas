@@ -17,21 +17,21 @@ class Jogador {
 
   }
 
-  nivel_de_jogo() : void{
+  public nivel_de_jogo(){
     if(this.pontos<50){
-      console.log('Pessima partida');
+      return console.log('Pessima partida');
     }
     if(this.pontos >=50 && this.pontos<100){
-      console.log('Pessima ruim');
+      return console.log('Pessima ruim');
     }
     if(this.pontos >=100 && this.pontos<150){
-      console.log('Fez o Basico');
+      return console.log('Fez o Basico');
     }
     if(this.pontos >=150 && this.pontos<200){
-      console.log('Foi bem na partida');
+      return console.log('Foi bem na partida');
     }
     if(this.pontos >200){
-      console.log('Jogou demais');
+      return console.log('Jogou demais');
     }
   }
 }
@@ -49,8 +49,10 @@ let passes_certos = leia.questionInt('Quantidade de passes certos: ');
 let passes_errados = leia.questionInt('Quantidade de passes errados: ');
 let pontos = (quantidade_de_gols*50)+(passes_certos*10)+(passes_errados*-10);
 
-jogador.push(new Jogador(nome, quantidade_de_gols, passes_certos, passes_errados, pontos));
+let novo_jogador = new Jogador(nome, quantidade_de_gols, passes_certos, passes_errados, pontos);
+jogador.push(novo_jogador);
 console.table(jogador);
+novo_jogador.nivel_de_jogo();
 
 }
 // Você precisa desenvolver um algoritmo para calcular a pontuação de todos os jogadores de um time de futebol. Nesse momento será analisada apenas a quantidade de gols, passes certos e passes errados. (Utilize Vetor e Objeto)
